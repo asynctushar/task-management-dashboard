@@ -10,9 +10,9 @@ const DashboardLayout = () => {
     const closeMobile = () => setMobileOpen(false);
 
     return (
-        <div className="flex h-screen overflow-hidden bg-background lg:p-4" >
+        <div className="flex h-screen overflow-hidden bg-background lg:px-4 lg:pt-4 gap-4" >
             {/* Desktop Sidebar */}
-            <aside className="hidden lg:flex w-72 shrink-0 flex-col bg-sidebar rounded-lg overflow-hidden">
+            <aside className="hidden lg:flex w-72 shrink-0 flex-col bg-sidebar rounded-lg overflow-hidden lg:mb-4">
                 <Sidebar />
             </aside>
 
@@ -26,7 +26,7 @@ const DashboardLayout = () => {
             {/* Main Content Area */}
             < div className="flex flex-1 flex-col overflow-hidden" >
                 <DashboardNavbar onMenuClick={() => setMobileOpen(true)} />
-                <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-background">
+                <main className="flex-1 bg-background p-4 lg:p-0 lg:pb-4 lg:pr-4 overflow-auto">
                     <Outlet />
                 </main>
             </div >

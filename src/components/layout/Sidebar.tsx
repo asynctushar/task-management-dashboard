@@ -98,7 +98,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
                                 >
                                     <item.icon
                                         className={cn(
-                                            "h-5 w-5 shrink-0 hover:text-sidebar-foreground transition-all duration-300", isActive ? "text-primary" : ""
+                                            "h-5 w-5 shrink-0 transition-all duration-300", isActive ? "text-primary" : ""
                                         )}
                                     />
                                     {item.label}
@@ -153,7 +153,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
                                 >
                                     <item.icon
                                         className={cn(
-                                            "h-5 w-5 shrink-0 hover:text-sidebar-foreground transition-all duration-300", isActive ? "text-primary" : ""
+                                            "h-5 w-5 shrink-0 transition-all duration-300", isActive ? "text-primary" : ""
                                         )}
                                     />
                                     {item.label}
