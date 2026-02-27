@@ -16,6 +16,7 @@ interface LinkItem extends BaseItem {
     href: string;
     handler?: never;
     type: "page";
+    count?: string;
 }
 
 interface HandlerItem extends BaseItem {
@@ -43,7 +44,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
 
     const menuItems: NavItem[] = [
         { href: "/", label: "Dashboard", icon: LucideLayoutDashboard, type: "page" },
-        { href: "/tasks", label: "Tasks", icon: Workflow, type: "page" },
+        { href: "/tasks", label: "Tasks", icon: Workflow, type: "page", count: "12+" },
         { href: "/calender", label: "Calender", icon: Calendar, type: "page" },
         { href: "/analytics", label: "Analytics", icon: ChartNoAxesCombined, type: "page" },
         { href: "/teams", label: "Team", icon: Users, type: "page" },
@@ -87,7 +88,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
 
                         return item.type === "page" ? (
                             <div key={item.href}
-                                className="relative flex items-center h-10"
+                                className="relative flex items-center gap-16 h-10"
                             >
                                 <div className={cn("h-full w-2 bg-primary absolute left-0 rounded-r-lg", isActive ? "visible" : "invisible")}></div>
                                 <Link
@@ -102,6 +103,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
                                     />
                                     {item.label}
                                 </Link>
+                                {item.count && <div className="bg-primary text-background text-xs font-light leading-tight p-1 rounded">{item.count}</div>}
                             </div>
                         ) : (
                             <div key={item.href}
@@ -141,7 +143,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
 
                         return item.type === "page" ? (
                             <div key={item.href}
-                                className="relative flex items-center h-10"
+                                className="relative flex items-center gap-16 h-10"
                             >
                                 <div className={cn("h-full w-2 bg-primary absolute left-0 rounded-r-lg", isActive ? "visible" : "invisible")}></div>
                                 <Link
@@ -156,6 +158,7 @@ const Sidebar = ({ onNavigate }: SidebarProps) => {
                                     />
                                     {item.label}
                                 </Link>
+                                {item.count && <div className="bg-primary text-background text-xs font-light leading-tight p-1 rounded">{item.count}</div>}
                             </div>
                         ) : (
                             <div key={item.href}
