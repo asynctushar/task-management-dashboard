@@ -26,13 +26,13 @@ const ProgressChart = () => {
     return (
         <ChartContainer
             config={chartConfig}
-            className="mx-auto aspect-square w-full max-w-[320px] -mb-20"
+            className="mx-auto aspect-square w-full max-w-[320px] lg:mt-12 -mb-32"
         >
             <RadialBarChart
                 data={chartData}
                 endAngle={180}
-                innerRadius={120}
-                outerRadius={250}
+                innerRadius="75%"
+                outerRadius="145%"
             >
                 <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
                     <Label

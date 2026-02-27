@@ -2,7 +2,7 @@ import Header from "@/components/dashboard/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowUpRightIcon, ChartArea, ChevronUp, Pause, Plus, Square, VideoIcon } from "lucide-react";
-import Profile from "@/assets/profile.png";
+import Profile from "@/assets/Profile.png";
 import { Badge } from "@/components/ui/badge";
 import AnalyticsChart from "@/components/dashboard/AnalyticsChart";
 import ProgressChart from "@/components/dashboard/ProgressChart";
@@ -11,22 +11,26 @@ const Dashboard = () => {
     return (
         <div className="space-y-2 animate-in fade-in-0 slide-in-from-bottom-1 duration-300">
             <Header />
-            <div className="bg-sidebar p-8 rounded-lg space-y-5">
-                <div className="flex items-center justify-between">
-                    <div className="space-y-2">
-                        <h2 className="text-3xl font-medium">Dashboard</h2>
-                        <h5 className="text-muted-foreground">Plan, prioritize, and accomplish your tasks with ease.</h5>
+            <div className="bg-sidebar p-4 sm:p-6 lg:p-8 rounded-lg space-y-5">
+
+                {/* Title row */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div className="space-y-1 sm:space-y-2">
+                        <h2 className="text-2xl sm:text-3xl font-medium">Dashboard</h2>
+                        <h5 className="text-muted-foreground text-sm sm:text-base">Plan, prioritize, and accomplish your tasks with ease.</h5>
                     </div>
-                    <div className="flex items-center gap-4">
-                        <Button variant="default" className="rounded-full gap-1" size="default">
-                            <Plus className="w-4 h-5" />
+                    <div className="flex items-center gap-3 sm:gap-4 shrink-0">
+                        <Button variant="default" className="rounded-full gap-1 text-sm" size="default">
+                            <Plus className="w-4 h-4" />
                             Add Project
                         </Button>
-                        <Button variant="outline" className="rounded-full border-primary/80 text-primary/80 hover:text-primary hover:border-primary hover:bg-background/80 gap-1" size="default">
+                        <Button variant="outline" className="rounded-full border-primary/80 text-primary/80 hover:text-primary hover:border-primary hover:bg-background/80 gap-1 text-sm" size="default">
                             Import Data
                         </Button>
                     </div>
                 </div>
+
+                {/* Stats cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     <Card className="py-6 bg-linear-150 from-foreground to-green-800 rounded-3xl">
                         <CardContent className="px-6 text-background/90 space-y-5">
@@ -34,7 +38,7 @@ const Dashboard = () => {
                                 <h2 className="leading-tight font-medium text-lg">
                                     Total Projects
                                 </h2>
-                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl">
+                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl shrink-0">
                                     <ArrowUpRightIcon className="w-5 h-5 transition-all duration-300" />
                                 </Button>
                             </div>
@@ -56,7 +60,7 @@ const Dashboard = () => {
                                 <h2 className="leading-tight font-medium text-lg">
                                     Ended Projects
                                 </h2>
-                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl">
+                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl shrink-0">
                                     <ArrowUpRightIcon className="w-5 h-5 transition-all duration-300" />
                                 </Button>
                             </div>
@@ -78,7 +82,7 @@ const Dashboard = () => {
                                 <h2 className="leading-tight font-medium text-lg">
                                     Running Projects
                                 </h2>
-                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl">
+                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl shrink-0">
                                     <ArrowUpRightIcon className="w-5 h-5 transition-all duration-300" />
                                 </Button>
                             </div>
@@ -100,7 +104,7 @@ const Dashboard = () => {
                                 <h2 className="leading-tight font-medium text-lg">
                                     Pending Projects
                                 </h2>
-                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl">
+                                <Button size="icon" variant="outline" className="text-foreground border border-foreground rounded-4xl shrink-0">
                                     <ArrowUpRightIcon className="w-5 h-5 transition-all duration-300" />
                                 </Button>
                             </div>
@@ -113,16 +117,22 @@ const Dashboard = () => {
                         </CardContent>
                     </Card>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+
+                {/* Main content grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+
+                    {/* Left 3-col area */}
                     <div className="col-span-1 lg:col-span-3 space-y-4">
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3">
-                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 lg:col-span-2">
+
+                        {/* Analytics + Reminders */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-2">
                                 <CardContent className="px-6 text-foreground space-y-5">
                                     <AnalyticsChart />
                                 </CardContent>
                             </Card>
                             <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1">
-                                <CardContent className="px-6 text-foreground flex flex-col gap-8 lg:gap-12 h-full" >
+                                <CardContent className="px-6 text-foreground flex flex-col gap-8 lg:gap-12 h-full">
                                     <div className="flex items-center justify-between">
                                         <h2 className="leading-tight font-medium text-lg">
                                             Reminders
@@ -137,111 +147,113 @@ const Dashboard = () => {
                                         </h5>
                                     </div>
                                     <Button variant="default" className="rounded-full gap-2 w-full py-6 mt-auto">
-                                        <VideoIcon className="" />
+                                        <VideoIcon />
                                         Add Project
                                     </Button>
                                 </CardContent>
                             </Card>
                         </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
-                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 lg:col-span-3">
+
+                        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-3">
                                 <CardContent className="px-6 text-foreground space-y-5">
-                                    <div className="flex items-center justify-between">
-                                        <h2 className="leading-tight font-medium text-lg">
-                                            Team Collaboration
-                                        </h2>
+                                    {/* flex-wrap so button drops below on narrow screens */}
+                                    <div className="flex flex-wrap items-center justify-between gap-2">
+                                        <h2 className="leading-tight font-medium text-lg">Team Collaboration</h2>
                                         <Button variant="outline" className="rounded-full border-primary/80 text-primary/80 hover:text-primary hover:border-primary hover:bg-background/80" size="lg">
-                                            <Plus className="w-4 h-5" />
+                                            <Plus className="w-4 h-4" />
                                             Add Member
                                         </Button>
                                     </div>
                                     <div className="space-y-6">
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 overflow-hidden rounded-full bg-chart-4 p-1">
-                                                <img src={Profile} alt="User Profile" className="w-12 h-12 object-contain" />
+                                        <div className="flex items-start gap-3 sm:gap-4">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
+                                                <img src={Profile} alt="User Profile" className="w-full h-full object-contain" />
                                             </div>
-                                            <div className="flex-1">
-                                                <h3 className="font-medium text-lg">{"Alexandra Deff"}</h3>
-                                                <div className="flex items-center justify-between">
-                                                    <h5 className="text-muted-foreground text-sm leading-tight">
-                                                        Working on
-                                                        {" "} <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-medium text-base sm:text-lg">{"Alexandra Deff"}</h3>
+                                                <div className="flex items-start justify-between gap-2">
+                                                    <h5 className="text-muted-foreground text-xs sm:text-sm leading-snug">
+                                                        Working on{" "}
+                                                        <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
                                                     </h5>
-                                                    <Badge>Completed</Badge>
+                                                    <Badge className="shrink-0 mt-0.5">Completed</Badge>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 overflow-hidden rounded-full bg-chart-4 p-1">
-                                                <img src={Profile} alt="User Profile" className="w-12 h-12 object-contain" />
+                                        <div className="flex items-start gap-3 sm:gap-4">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
+                                                <img src={Profile} alt="User Profile" className="w-full h-full object-contain" />
                                             </div>
-                                            <div className="flex-1">
-                                                <h3 className="font-medium text-lg">{"Alexandra Deff"}</h3>
-                                                <div className="flex items-center justify-between">
-                                                    <h5 className="text-muted-foreground text-sm leading-tight">
-                                                        Working on
-                                                        {" "} <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-medium text-base sm:text-lg">{"Alexandra Deff"}</h3>
+                                                <div className="flex items-start justify-between gap-2">
+                                                    <h5 className="text-muted-foreground text-xs sm:text-sm leading-snug">
+                                                        Working on{" "}
+                                                        <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
                                                     </h5>
-                                                    <Badge variant="secondary">In Progress</Badge>
+                                                    <Badge variant="secondary" className="shrink-0 mt-0.5">In Progress</Badge>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 overflow-hidden rounded-full bg-chart-4 p-1">
-                                                <img src={Profile} alt="User Profile" className="w-12 h-12 object-contain" />
+                                        <div className="flex items-start gap-3 sm:gap-4">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
+                                                <img src={Profile} alt="User Profile" className="w-full h-full object-contain" />
                                             </div>
-                                            <div className="flex-1">
-                                                <h3 className="font-medium text-lg">{"Alexandra Deff"}</h3>
-                                                <div className="flex items-center justify-between">
-                                                    <h5 className="text-muted-foreground text-sm leading-tight">
-                                                        Working on
-                                                        {" "} <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-medium text-base sm:text-lg">{"Alexandra Deff"}</h3>
+                                                <div className="flex items-start justify-between gap-2">
+                                                    <h5 className="text-muted-foreground text-xs sm:text-sm leading-snug">
+                                                        Working on{" "}
+                                                        <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
                                                     </h5>
-                                                    <Badge variant="destructive">Pending</Badge>
+                                                    <Badge variant="destructive" className="shrink-0 mt-0.5">Pending</Badge>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="flex items-center gap-4">
-                                            <div className="w-12 h-12 overflow-hidden rounded-full bg-chart-4 p-1">
-                                                <img src={Profile} alt="User Profile" className="w-12 h-12 object-contain" />
+                                        <div className="flex items-start gap-3 sm:gap-4">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
+                                                <img src={Profile} alt="User Profile" className="w-full h-full object-contain" />
                                             </div>
-                                            <div className="flex-1">
-                                                <h3 className="font-medium text-lg">{"Alexandra Deff"}</h3>
-                                                <div className="flex items-center justify-between">
-                                                    <h5 className="text-muted-foreground text-sm leading-tight">
-                                                        Working on
-                                                        {" "} <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="font-medium text-base sm:text-lg">{"Alexandra Deff"}</h3>
+                                                <div className="flex items-start justify-between gap-2">
+                                                    <h5 className="text-muted-foreground text-xs sm:text-sm leading-snug">
+                                                        Working on{" "}
+                                                        <strong className="text-foreground/80 font-medium">Github Project Repository</strong>
                                                     </h5>
-                                                    <Badge>Completed</Badge>
+                                                    <Badge className="shrink-0 mt-0.5">Completed</Badge>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
-                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 lg:col-span-2">
+                            <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-2">
                                 <CardContent className="px-6 text-foreground flex flex-col gap-5">
                                     <h2 className="leading-tight font-medium text-lg">Project Progress</h2>
                                     <ProgressChart />
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center gap-1.5">
-                                            <div className="w-3.5 h-3.5 rounded-sm" style={{ background: "color-mix(in srgb, var(--color-primary) 100%, black 25%)" }} />
-                                            <span className="text-sm text-foreground">Completed</span>
+                                            <div className="w-3.5 h-3.5 rounded-sm shrink-0" style={{ background: "color-mix(in srgb, var(--color-primary) 100%, black 25%)" }} />
+                                            <span className="text-xs sm:text-sm text-foreground">Completed</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <div className="w-3.5 h-3.5 rounded-sm bg-primary" />
-                                            <span className="text-sm text-foreground">In Progress</span>
+                                            <div className="w-3.5 h-3.5 rounded-sm bg-primary shrink-0" />
+                                            <span className="text-xs sm:text-sm text-foreground">In Progress</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <div className="w-3.5 h-3.5 rounded-sm bg-secondary" />
-                                            <span className="text-sm text-foreground">Pending</span>
+                                            <div className="w-3.5 h-3.5 rounded-sm bg-secondary shrink-0" />
+                                            <span className="text-xs sm:text-sm text-foreground">Pending</span>
                                         </div>
                                     </div>
                                 </CardContent>
                             </Card>
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 gap-4">
+
+                    {/* Right sidebar col */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
                         <Card className="py-6 bg-background border-none shadow-none rounded-3xl">
                             <CardContent className="px-6 text-foreground space-y-5">
                                 <div className="flex items-center justify-between">
@@ -249,51 +261,51 @@ const Dashboard = () => {
                                         Project
                                     </h2>
                                     <Button variant="outline" className="rounded-full border-primary/80 text-primary/80 hover:text-primary hover:border-primary hover:bg-background/80 gap-1" size="default">
-                                        <Plus className="w-4 h-5" />
+                                        <Plus className="w-4 h-4" />
                                         New
                                     </Button>
                                 </div>
                                 <div className="space-y-6">
                                     <div className="flex items-center gap-4">
-                                        <ChartArea className="w-8 h-8 text-primary" />
-                                        <div className="flex-1 space-y-1">
-                                            <h3 className="text-base">Develop API Endpoints</h3>
+                                        <ChartArea className="w-8 h-8 text-primary shrink-0" />
+                                        <div className="flex-1 space-y-1 min-w-0">
+                                            <h3 className="text-base truncate">Develop API Endpoints</h3>
                                             <h5 className="text-muted-foreground text-sm leading-tight">
                                                 Due date: Nov 26, 2024
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <ChartArea className="w-8 h-8 text-primary" />
-                                        <div className="flex-1 space-y-1">
-                                            <h3 className="text-base">Develop API Endpoints</h3>
+                                        <ChartArea className="w-8 h-8 text-primary shrink-0" />
+                                        <div className="flex-1 space-y-1 min-w-0">
+                                            <h3 className="text-base truncate">Develop API Endpoints</h3>
                                             <h5 className="text-muted-foreground text-sm leading-tight">
                                                 Due date: Nov 26, 2024
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <ChartArea className="w-8 h-8 text-primary" />
-                                        <div className="flex-1 space-y-1">
-                                            <h3 className="text-base">Develop API Endpoints</h3>
+                                        <ChartArea className="w-8 h-8 text-primary shrink-0" />
+                                        <div className="flex-1 space-y-1 min-w-0">
+                                            <h3 className="text-base truncate">Develop API Endpoints</h3>
                                             <h5 className="text-muted-foreground text-sm leading-tight">
                                                 Due date: Nov 26, 2024
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <ChartArea className="w-8 h-8 text-primary" />
-                                        <div className="flex-1 space-y-1">
-                                            <h3 className="text-base">Develop API Endpoints</h3>
+                                        <ChartArea className="w-8 h-8 text-primary shrink-0" />
+                                        <div className="flex-1 space-y-1 min-w-0">
+                                            <h3 className="text-base truncate">Develop API Endpoints</h3>
                                             <h5 className="text-muted-foreground text-sm leading-tight">
                                                 Due date: Nov 26, 2024
                                             </h5>
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <ChartArea className="w-8 h-8 text-primary" />
-                                        <div className="flex-1 space-y-1">
-                                            <h3 className="text-base">Develop API Endpoints</h3>
+                                        <ChartArea className="w-8 h-8 text-primary shrink-0" />
+                                        <div className="flex-1 space-y-1 min-w-0">
+                                            <h3 className="text-base truncate">Develop API Endpoints</h3>
                                             <h5 className="text-muted-foreground text-sm leading-tight">
                                                 Due date: Nov 26, 2024
                                             </h5>
@@ -324,9 +336,9 @@ const Dashboard = () => {
                         </Card>
                     </div>
 
-                </div >
-            </div >
-        </div >
+                </div>
+            </div>
+        </div>
     );
 };
 
