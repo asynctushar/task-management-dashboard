@@ -1,8 +1,8 @@
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 
-const completed = 41;
-const inProgress = 25;
+const completed = 62;
+const inProgress = 17;
 const pending = 100 - completed - inProgress;
 
 const chartData = [{ completed, inProgress, pending }];

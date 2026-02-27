@@ -27,7 +27,7 @@ const Header = () => {
                     </Button>
                     <div className="flex items-center gap-2 sm:gap-4">
                         <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
-                            <img src={Profile} alt="User Profile" className="w-full h-full object-contain" />
+                            <img src={Profile} alt="User Profile" className="sm:w-12 sm:h-12 w-10 h-10 object-contain" />
                         </div>
                         <div className="hidden sm:block min-w-0">
                             <h3 className="font-medium text-base truncate">{"Totok Michael"}</h3>

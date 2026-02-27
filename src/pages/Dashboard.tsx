@@ -9,7 +9,7 @@ import ProgressChart from "@/components/dashboard/ProgressChart";
 
 const Dashboard = () => {
     return (
-        <div className="space-y-2 animate-in fade-in-0 slide-in-from-bottom-1 duration-300">
+        <div className="space-y-3 animate-in fade-in-0 slide-in-from-bottom-1 duration-300">
             <Header />
             <div className="bg-sidebar p-4 sm:p-6 lg:p-8 rounded-lg space-y-5">
 
@@ -31,7 +31,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Stats cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     <Card className="py-6 bg-linear-150 from-foreground to-green-800 rounded-3xl">
                         <CardContent className="px-6 text-background/90 space-y-5">
                             <div className="flex items-center justify-between">
@@ -119,13 +119,13 @@ const Dashboard = () => {
                 </div>
 
                 {/* Main content grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
+                <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
 
                     {/* Left 3-col area */}
-                    <div className="col-span-1 lg:col-span-3 space-y-4">
+                    <div className="col-span-1 lg:col-span-3 space-y-5">
 
                         {/* Analytics + Reminders */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                             <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-2">
                                 <CardContent className="px-6 text-foreground space-y-5">
                                     <AnalyticsChart />
@@ -154,7 +154,7 @@ const Dashboard = () => {
                             </Card>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-5 gap-5">
                             <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-3">
                                 <CardContent className="px-6 text-foreground space-y-5">
                                     {/* flex-wrap so button drops below on narrow screens */}
@@ -253,7 +253,7 @@ const Dashboard = () => {
                     </div>
 
                     {/* Right sidebar col */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-5">
                         <Card className="py-6 bg-background border-none shadow-none rounded-3xl">
                             <CardContent className="px-6 text-foreground space-y-5">
                                 <div className="flex items-center justify-between">
