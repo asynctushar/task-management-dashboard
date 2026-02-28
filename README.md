@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# Donezo — Smart Task Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive task management dashboard built with React and TypeScript. Organize, track, and complete your work efficiently with a clean and powerful interface.
 
-Currently, two official plugins are available:
+**[Live Demo](http://task-management-dashboard-application.vercel.app/)** · **[GitHub](https://github.com/asynctushar/task-management-dashboard)**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Donezo Dashboard](https://placehold.co/1280x640/f5f5f0/555?text=Donezo+Dashboard&font=raleway)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Dashboard Overview** — Real-time stats on total, active, inactive users and products at a glance
+- **Analytics Chart** — Visual breakdown of views, clicks, and conversions over time
+- **Progress Tracker** — Radial chart showing completed, in-progress, and pending work
+- **Team Collaboration** — User list with join dates and activity status
+- **Product Management** — Quick access to products with pricing and sales data
+- **Time Tracker** — Built-in timer with pause and stop controls
+- **Reminders** — Meeting and event reminders with a quick-join action
+- **Responsive Design** — Fully optimized for mobile, tablet, and desktop
+- **Skeleton Loaders** — Polished loading states that mirror the real layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+| Category | Technology |
+|---|---|
+| Framework | React 19 + TypeScript |
+| Routing | React Router v7 |
+| Styling | Tailwind CSS v4 |
+| UI Components | shadcn/ui |
+| Charts | Recharts |
+| Data Fetching | TanStack Query |
+| Notifications | Sonner |
+| Icons | Lucide React |
+| Build Tool | Vite |
+| Deployment | Vercel |
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+
+- npm or pnpm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/asynctushar/task-management-dashboard.git
+cd task-management-dashboard
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Build for Production
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run build
+npm run preview
 ```
+
+---
+
+## Project Structure
+
+```
+src/
+├── assets/              # Static assets (images, icons)
+├── components/
+│   ├── dashboard/       # Dashboard-specific components
+│   │   ├── Header.tsx
+│   │   ├── AnalyticsChart.tsx
+│   │   ├── ProgressChart.tsx
+│   │   ├── TimeTracker.tsx
+│   │   └── Loader.tsx
+│   ├── layouts/
+│   │   └── DashboardLayout.tsx
+│   │   └── DashboardNavbar.tsx
+│   │   └── Sidebar.tsx
+│   └── ui/              # shadcn/ui primitives
+├── context/
+│   └── auth/            # Auth context and hooks
+├── pages/
+│   ├── Dashboard.tsx
+│   └── Temporary.tsx    # Temporary notice page
+│   └── NotFound.tsx
+├── router/              # React router setup
+├── guards/              # Router guards
+├── lib/                 # Library supports
+├── types/               # Types
+├── services/            # API service functions
+├── index.css
+└── App.tsx
+└── main.tsx
+```
+
+---
+
+## Design System
+
+Donezo uses [shadcn/ui](https://ui.shadcn.com/) with a custom theme built on CSS variables and Tailwind CSS v4. The color palette supports both light and dark modes out of the box.
+
+Primary accent color is a green `oklch(0.5568 0.121 156.34)`, chosen to convey productivity and clarity.
+
+---
+
+## License
+
+MIT © [asynctushar](https://github.com/asynctushar)
