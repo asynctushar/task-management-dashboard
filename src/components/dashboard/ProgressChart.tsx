@@ -1,11 +1,11 @@
 import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
+import { useMemo } from "react";
 
-const completed = 62;
-const inProgress = 17;
-const pending = 100 - completed - inProgress;
-
-const chartData = [{ completed, inProgress, pending }];
+interface Props {
+    completed: number;
+    inProgress: number;
+}
 
 const chartConfig = {
     completed: {
@@ -22,14 +22,28 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
-const ProgressChart = () => {
+const ProgressChart = ({ completed, inProgress }: Props) => {
+    const safeData = useMemo(() => {
+        const safeCompleted = Math.min(Math.max(completed, 0), 100);
+        const safeInProgress = Math.min(Math.max(inProgress, 0), 100 - safeCompleted);
+        const pending = 100 - safeCompleted - safeInProgress;
+
+        return [
+            {
+                completed: safeCompleted,
+                inProgress: safeInProgress,
+                pending,
+            },
+        ];
+    }, [completed, inProgress]);
+
     return (
         <ChartContainer
             config={chartConfig}
             className="mx-auto aspect-square w-full max-w-[320px] lg:mt-12 -mb-32"
         >
             <RadialBarChart
-                data={chartData}
+                data={safeData}
                 endAngle={180}
                 innerRadius="75%"
                 outerRadius="145%"
@@ -45,7 +59,7 @@ const ProgressChart = () => {
                                             y={(viewBox.cy || 0) - 20}
                                             className="fill-foreground text-4xl font-bold"
                                         >
-                                            {completed}%
+                                            {safeData[0].completed}%
                                         </tspan>
                                         <tspan
                                             x={viewBox.cx}
@@ -60,6 +74,7 @@ const ProgressChart = () => {
                         }}
                     />
                 </PolarRadiusAxis>
+
                 <RadialBar
                     dataKey="pending"
                     stackId="a"

@@ -11,3 +11,9 @@ export interface LoginPayload {
 export interface LoginResponse extends User {
     token: string;
 }
+
+export interface DashboardUser extends User {
+    name: string;
+    status: "active" | "inactive";
+    joinDate: string;
+}

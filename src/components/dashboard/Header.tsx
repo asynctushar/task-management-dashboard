@@ -7,7 +7,7 @@ import { Input } from "../ui/input";
 const Header = () => {
     const { user } = useAuth();
     return (
-        <header className="bg-sidebar p-4 sm:p-6 rounded-lg space-y-3 sm:space-y-0">
+        <header className="bg-sidebar p-4 sm:p-6 lg:p-8 rounded-lg space-y-3 sm:space-y-0">
             <div className="flex items-center justify-between gap-3">
                 <div className="hidden sm:flex items-center bg-background px-3 py-1 rounded-full focus-within:ring focus-within:ring-border/90 w-84">
                     <Search className="w-5 h-5 shrink-0" />
