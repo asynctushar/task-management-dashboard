@@ -40,7 +40,7 @@ const ProgressChart = ({ completed, inProgress }: Props) => {
     return (
         <ChartContainer
             config={chartConfig}
-            className="mx-auto aspect-square w-full max-w-[320px] lg:mt-12 -mb-32"
+            className="mx-auto aspect-square w-full max-w-[320px] sm:mt-24 md:mt-28 lg:mt-32 -mb-32"
         >
             <RadialBarChart
                 data={safeData}

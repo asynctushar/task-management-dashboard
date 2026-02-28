@@ -253,7 +253,7 @@ const Dashboard = () => {
                                         </Button>
                                     </div>
                                     <div className="space-y-6">
-                                        {data?.users.slice(0, 4).map((user) => (
+                                        {data?.users.map((user) => (
                                             <div key={user.id} className="flex items-start gap-3 sm:gap-4">
                                                 <div className="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-full bg-chart-4 p-1 shrink-0">
                                                     <img src={Profile} alt={user.name} className="sm:w-12 sm:h-12 w-10 h-10 object-contain" />
