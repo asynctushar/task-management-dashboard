@@ -71,7 +71,7 @@ const Dashboard = () => {
             title: "Total Products",
             value: data?.products.length,
             status: {
-                text: "On Discuss"
+                text: "All plans & features"
             }
         },
     ], [data?.products, activeUsers, inactiveUsers, data?.overview]);
