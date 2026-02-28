@@ -35,46 +35,43 @@ const Dashboard = () => {
         staleTime: 1000 * 60 * 10, // 10 minutes
     });
 
-    const activeUsers = useMemo(() => data?.users.filter((u) => u.status === "active"), [data?.users]);
-    const inactiveUsers = useMemo(() => data?.users.filter((u) => u.status === "inactive"), [data?.users]);
-
     const statsCards = useMemo(() => [
         {
             title: "Total Users",
             value: data?.overview.totalUsers,
             highlight: true,
             status: {
-                count: 5,
+                count: data?.overview.totalUsers ? 5 : 0, // optional, could be dynamic
                 type: "up",
                 text: "Increased from last month"
             }
         },
         {
             title: "Active Users",
-            value: activeUsers?.length,
+            value: data?.overview.activeUsers,
             status: {
-                count: 6,
+                count: data?.overview.activeUsers ? 6 : 0,
                 type: "up",
                 text: "Increased from last month"
             }
         },
         {
-            title: "Inactive Users",
-            value: inactiveUsers?.length,
+            title: "Revenue",
+            value: `$${data?.overview.revenue?.toLocaleString()}`,
             status: {
-                count: 2,
+                count: data?.overview.growth ? data.overview.growth : 0,
                 type: "up",
-                text: "Increased from last month"
+                text: `${data?.overview.growth}% growth`
             }
         },
         {
-            title: "Total Products",
-            value: data?.products.length,
+            title: "Growth",
+            value: `${data?.overview.growth ?? 0}%`,
             status: {
-                text: "All plans & features"
+                text: "Compared to last month"
             }
         },
-    ], [data?.products, activeUsers, inactiveUsers, data?.overview]);
+    ], [data?.overview]);
 
     const progressData = useMemo(() => {
         if (!data?.analytics?.length) {
@@ -215,6 +212,11 @@ const Dashboard = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                             <Card className="py-6 bg-background border-none shadow-none rounded-3xl col-span-1 sm:col-span-2">
                                 <CardContent className="px-6 text-foreground space-y-5">
+                                    <div className="flex items-center justify-between">
+                                        <h2 className="leading-tight font-medium text-lg">
+                                            Product Analytics
+                                        </h2>
+                                    </div>
                                     <AnalyticsChart data={data?.analytics} />
                                 </CardContent>
                             </Card>
