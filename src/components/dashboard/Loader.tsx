@@ -38,22 +38,8 @@ const Loader = () => {
 
                 {/* Stats cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                    {/* Highlighted card */}
-                    <Card className="py-6 bg-background border-none shadow-none rounded-3xl">
-                        <CardContent className="px-6 space-y-5">
-                            <div className="flex items-center justify-between">
-                                <Skeleton className="h-5 w-28 bg-background/20" />
-                                <Skeleton className="h-9 w-9 rounded-full bg-background/20 shrink-0" />
-                            </div>
-                            <Skeleton className="h-12 w-16 bg-background/20" />
-                            <div className="flex items-center gap-3">
-                                <Skeleton className="h-5 w-10 rounded-md bg-background/20" />
-                                <Skeleton className="h-3 w-36 bg-background/20" />
-                            </div>
-                        </CardContent>
-                    </Card>
-                    {/* Plain cards */}
-                    {Array.from({ length: 3 }).map((_, i) => (
+                    {/* cards */}
+                    {Array.from({ length: 4 }).map((_, i) => (
                         <Card key={i} className="py-6 bg-background border-none shadow-none rounded-3xl">
                             <CardContent className="px-6 space-y-5">
                                 <div className="flex items-center justify-between">
