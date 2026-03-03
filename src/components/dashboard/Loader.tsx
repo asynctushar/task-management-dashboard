@@ -39,7 +39,7 @@ const Loader = () => {
                 {/* Stats cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
                     {/* Highlighted card */}
-                    <Card className="py-6 rounded-3xl bg-linear-150 from-foreground to-green-800">
+                    <Card className="py-6 bg-background border-none shadow-none rounded-3xl">
                         <CardContent className="px-6 space-y-5">
                             <div className="flex items-center justify-between">
                                 <Skeleton className="h-5 w-28 bg-background/20" />
